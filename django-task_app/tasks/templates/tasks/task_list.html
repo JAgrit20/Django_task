@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task </title>
+    {% load static %}  
+    <link href="{% static 'css/bootstrap.min.css' %}" >  
+    <script src="{% static 'bootstrap.min.js' %}"></script>  
+</head>
+
+<body>
+<h3>Task </h3>
+{% for task in tasks %}
+<div class="tooltip div1">
+    <p>{{ forloop.counter }}. {{ task.name }}
+        
+            <span class="tooltiptext">{{ task.status }}</span>
+          
+    </p>
+</div>
+{% endfor %}
+<style>
+    .div1 {
+ margin: 20px;
+  width: 300px;
+  height: 50px;
+  border: 1px solid #102940;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #4992D3;
+  border-radius: 50px;
+  color: aliceblue;
+
+}
+    /* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+    
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+
+      background-color: black;
+      color: rgb(210, 28, 28);
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+     
+      position: absolute;
+      z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    }
+    
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    </style>
+
+</body>
+
+</html>
